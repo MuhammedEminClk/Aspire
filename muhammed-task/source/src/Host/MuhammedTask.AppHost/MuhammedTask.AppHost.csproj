@@ -21,6 +21,7 @@
     <ProjectReference Include="..\..\Services\CategoryService\MuhammedTask.Services.CategoryService.WebApi\MuhammedTask.Services.CategoryService.WebApi.csproj" />
     <ProjectReference Include="..\..\Services\ProductService\MuhammedTask.Services.ProductService.WebApi\MuhammedTask.Services.ProductService.WebApi.csproj" />
     <ProjectReference Include="..\..\Services\ProxyService\Yarp.ProxyService\Yarp.ProxyService.csproj" />
+    <ProjectReference Include="..\..\Services\ProductReviewService\MuhammedTask.Services.ProductReviewService.WebApi\MuhammedTask.Services.ProductReviewService.WebApi.csproj" />
   </ItemGroup>
 
 </Project>

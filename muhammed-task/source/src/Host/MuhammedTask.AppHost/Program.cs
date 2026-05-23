@@ -11,8 +11,10 @@ const string
     rabbitmqKey = "rabbitmq",
     pgProductServiceDb = "pg-productservice",
     pgCategoryServiceDb = "pg-categoryservice",
+    pgProductReviewServiceDb = "pg-productreviewservice",
     productServiceKey = "productservice",
-    categoryServiceKey = "categoryservice";
+    categoryServiceKey = "categoryservice",
+    productReviewServiceKey = "productreviewservice";
 
 IResourceBuilder<KeycloakResource> keycloak = builder
     .AddKeycloak(keycloakKey)
@@ -78,11 +80,22 @@ productService
     .WithReference(categoryService)
     .WaitFor(categoryService);
 
-
+IResourceBuilder<PostgresDatabaseResource> productReviewServicePostgresDatabase = postgres.AddDatabase(pgProductReviewServiceDb);
+IResourceBuilder<ProjectResource> productReviewService = builder
+    .AddProject<Projects.MuhammedTask_Services_ProductReviewService_WebApi>(productReviewServiceKey)
+    .WithHttpHealthCheck("/health")
+    .WithReference(seq)
+    .WithReference(cache)
+    .WithReference(rabbitmq)
+    .WithReference(productReviewServicePostgresDatabase)
+    .WaitFor(productReviewServicePostgresDatabase)
+    .WithReference(keycloak)
+    .WaitFor(keycloak);
 
 builder.AddProject<Projects.Yarp_ProxyService>(yarpKey)
     .WithReference(productService)
     .WithReference(categoryService)
+    .WithReference(productReviewService)
     .WithReference(keycloak)
     .WithReference(seq)
     .WithExternalHttpEndpoints();
