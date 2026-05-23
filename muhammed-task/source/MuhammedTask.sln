@@ -114,6 +114,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuhammedTask.Services.Produ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuhammedTask.Services.ProductReviewService.WebApi", "src\Services\ProductReviewService\MuhammedTask.Services.ProductReviewService.WebApi\MuhammedTask.Services.ProductReviewService.WebApi.csproj", "{1EA19F49-655E-411D-83BD-1EB1E7D519BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuhammedTask.Services.ProductReviewService.Domain.Tests", "src\Services\ProductReviewService\MuhammedTask.Services.ProductReviewService.Domain.Tests\MuhammedTask.Services.ProductReviewService.Domain.Tests.csproj", "{0C831AB6-3E01-4614-BAF0-7DF5DEEC0DAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -248,6 +250,10 @@ Global
 		{1EA19F49-655E-411D-83BD-1EB1E7D519BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EA19F49-655E-411D-83BD-1EB1E7D519BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EA19F49-655E-411D-83BD-1EB1E7D519BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C831AB6-3E01-4614-BAF0-7DF5DEEC0DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C831AB6-3E01-4614-BAF0-7DF5DEEC0DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C831AB6-3E01-4614-BAF0-7DF5DEEC0DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C831AB6-3E01-4614-BAF0-7DF5DEEC0DAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -303,5 +309,6 @@ Global
 		{BF1F61F9-E941-4EBC-A48E-404CFF16FB86} = {7DCB9785-0B3B-4030-9A66-5914AD611C60}
 		{C7D9C3D8-8AB4-4500-AB3C-125CA750818D} = {7DCB9785-0B3B-4030-9A66-5914AD611C60}
 		{1EA19F49-655E-411D-83BD-1EB1E7D519BC} = {7DCB9785-0B3B-4030-9A66-5914AD611C60}
+		{0C831AB6-3E01-4614-BAF0-7DF5DEEC0DAC} = {7DCB9785-0B3B-4030-9A66-5914AD611C60}
 	EndGlobalSection
 EndGlobal
