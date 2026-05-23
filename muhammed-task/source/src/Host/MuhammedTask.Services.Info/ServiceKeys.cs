@@ -11,10 +11,12 @@ public static class ServiceKeys
     public const string Keycloak = "keycloak";
     public const string ProductService = "productservice";
     public const string CategoryService = "categoryservice";
+    public const string ProductReviewService = "productreviewservice";
 
     public static class Database
     {
         public const string PostgresProductService = "pg-productservice";
         public const string PostgresCategoryService = "pg-categoryservice";
+        public const string PostgresProductReviewService = "pg-productreviewservice";
     }
 }
