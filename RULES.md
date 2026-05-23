@@ -345,6 +345,16 @@ IResourceBuilder<ProjectResource> productReviewService = builder
 - Her commit çalışır durumda olacak (build kırmayacak)
 - Migration ayrı commit olacak
 
+### 7.1 Commit Öncesi Zorunlu Kontrol Listesi
+
+Her commit atmadan önce aşağıdaki 3 kontrol yapılacak:
+
+1. **Task.md kontrolü** — İstenen özellik tam ve eksiksiz mi?
+2. **RULES.md kontrolü** — Hiçbir anti-pattern yok mu? (exception, primitive obsession, anemic domain, .Result/.Wait(), direkt DbContext, hardcode, domain event yanlış publish, migration atlanmış)
+3. **ROADMAP.md kontrolü** — İlgili aşamanın tüm maddeleri tamamlandı mı?
+
+Kontrol sonuçları `yapılanlar/commit-log.md` dosyasına yazılır (bu klasör .gitignore'da, repo'ya gitmez).
+
 ---
 
 ## 8. Anti-Pattern Özeti (Task.md'den)

@@ -1058,3 +1058,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,jetbrains,rider,webstorm,vim,windows,linux,macos,csharp,node
 
+# Internal dev notes — not for repo
+yapılanlar/
+
