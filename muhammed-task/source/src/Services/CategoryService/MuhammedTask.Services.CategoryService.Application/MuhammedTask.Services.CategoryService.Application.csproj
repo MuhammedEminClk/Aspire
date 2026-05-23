@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+	  <ProjectReference Include="..\..\..\BuildingBlocks\Layers\Application\MuhammedTask.BuildingBlocks.Application\MuhammedTask.BuildingBlocks.Application.csproj" />
+	  <ProjectReference Include="..\..\..\BuildingBlocks\MessageBrokers\MuhammedTask.BuildingBlocks.MessageBrokers.Base\MuhammedTask.BuildingBlocks.MessageBrokers.Base.csproj" />
+	  <ProjectReference Include="..\MuhammedTask.Services.CategoryService.Domain\MuhammedTask.Services.CategoryService.Domain.csproj" />
+  </ItemGroup>
+</Project>

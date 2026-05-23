@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Caching\MuhammedTask.BuildingBlocks.Caching.Base\MuhammedTask.BuildingBlocks.Caching.Base.csproj" />
+		<ProjectReference Include="..\..\Domain\MuhammedTask.BuildingBlocks.Domain\MuhammedTask.BuildingBlocks.Domain.csproj" />
+		<ProjectReference Include="..\MuhammedTask.BuildingBlocks.Application.Shared\MuhammedTask.BuildingBlocks.Application.Shared.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions"/>
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions"/>
+		<PackageReference Include="MediatR"  />
+	</ItemGroup>
+</Project>

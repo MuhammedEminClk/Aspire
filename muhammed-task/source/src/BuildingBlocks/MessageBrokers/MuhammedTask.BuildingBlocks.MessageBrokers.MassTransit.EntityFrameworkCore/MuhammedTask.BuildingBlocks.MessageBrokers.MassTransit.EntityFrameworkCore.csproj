@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="MassTransit.EntityFrameworkCore"  />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MuhammedTask.BuildingBlocks.MessageBrokers.MassTransit\MuhammedTask.BuildingBlocks.MessageBrokers.MassTransit.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>48046519-421c-4741-af4b-b85e94ed7609</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Keycloak" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL"/>
+    <PackageReference Include="Aspire.Hosting.RabbitMQ"  />
+    <PackageReference Include="Aspire.Hosting.Redis" />
+    <PackageReference Include="Aspire.Hosting.Seq" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\CategoryService\MuhammedTask.Services.CategoryService.WebApi\MuhammedTask.Services.CategoryService.WebApi.csproj" />
+    <ProjectReference Include="..\..\Services\ProductService\MuhammedTask.Services.ProductService.WebApi\MuhammedTask.Services.ProductService.WebApi.csproj" />
+    <ProjectReference Include="..\..\Services\ProxyService\Yarp.ProxyService\Yarp.ProxyService.csproj" />
+  </ItemGroup>
+
+</Project>

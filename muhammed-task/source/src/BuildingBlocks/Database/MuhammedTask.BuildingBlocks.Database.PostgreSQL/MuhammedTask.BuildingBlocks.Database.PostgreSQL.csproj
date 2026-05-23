@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+
+  <ItemGroup>
+    <PackageReference Include="CSharpEssentials.EntityFrameworkCore" />
+    <PackageReference Include="Dapper"  />
+    <PackageReference Include="EntityFrameworkCore.Exceptions.PostgreSQL"/>
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="Npgsql.OpenTelemetry" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Layers\Application\MuhammedTask.BuildingBlocks.Application.Shared\MuhammedTask.BuildingBlocks.Application.Shared.csproj" />
+    <ProjectReference Include="..\MuhammedTask.BuildingBlocks.Database.Base\MuhammedTask.BuildingBlocks.Database.Base.csproj" />
+  </ItemGroup>
+
+</Project>

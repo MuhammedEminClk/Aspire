@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SenRecep.Aspire</id>
+    <version>1.0.11</version>
+    <title>Modern .NET Aspire Microservice Starter Template</title>
+    <authors>SenRecep</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon.png</icon>
+    <readme>README.MD</readme>
+    <projectUrl>https://github.com/SenRecep/Aspire</projectUrl>
+    <description>A modern, production-ready microservices template built with .NET Aspire 9.0. Features include Domain-Driven Design (DDD), Clean Architecture, PostgreSQL, Redis, RabbitMQ, Keycloak, OpenTelemetry, and comprehensive development tools for building scalable cloud-native applications.</description>
+    <releaseNotes>Comprehensive microservice template with .NET Aspire 9.0, featuring DDD, Clean Architecture, and modern cloud-native infrastructure components.</releaseNotes>
+    <language>en-US</language>
+    <tags>dotnet aspire microservice template ddd clean-architecture postgresql redis rabbitmq keycloak opentelemetry cloud-native</tags>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+    <repository type="git" url="https://github.com/SenRecep/Aspire.git" />
+  </metadata>
+</package>
