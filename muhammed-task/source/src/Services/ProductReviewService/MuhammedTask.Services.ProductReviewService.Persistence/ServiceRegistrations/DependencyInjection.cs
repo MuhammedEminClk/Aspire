@@ -65,7 +65,8 @@ public static class DependencyInjection
             .AddSingleton<SlowQueryInterceptor>()
             .AddPooledPostgresDbContext<ApplicationWriteDbContext>(
                 configuration.GetConnectionString(ServiceKeys.Database.PostgresProductReviewService)!,
-                options => options.MigrationsAssembly = migrationsAssembly)
+                options => options.MigrationsAssembly = migrationsAssembly,
+                configureOptions: (_, o) => o.ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)))
             .AddPooledPostgresDbContext<ApplicationReadDbContext>(
                 configuration.GetConnectionString(ServiceKeys.Database.PostgresProductReviewService)!,
                 options =>

@@ -3,6 +3,7 @@ using MuhammedTask.Services.ProductReviewService.Domain.ProductReviews;
 using MuhammedTask.Services.ProductReviewService.Domain.ProductReviews.Fields;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MuhammedTask.Services.ProductReviewService.Persistence.EntityFrameworkCore.Configurations.Write;
 
@@ -28,9 +29,13 @@ internal sealed class ProductReviewConfiguration : IEntityTypeConfiguration<Prod
             .Property(p => p.Rating)
             .HasConversion(r => r.Value, r => ReviewRating.From(r));
 
+        ValueConverter<ReviewComment?, string?> commentConverter = new(
+            c => c == null ? null : c.Value.Value,
+            s => s == null ? null : ReviewComment.From(s));
+
         builder
             .Property(p => p.Comment)
-            .HasConversion(c => c.Value, c => ReviewComment.From(c))
+            .HasConversion(commentConverter)
             .HasMaxLength(ReviewComment.MaxLength)
             .IsRequired(false);
 

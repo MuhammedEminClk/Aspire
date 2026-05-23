@@ -9,7 +9,7 @@ namespace MuhammedTask.Services.ProductReviewService.Domain.ProductReviews;
 public sealed class ProductReview : SoftDeletableEntityBase<ProductReviewId>
 {
     private ProductReview() { }
-    private ProductReview(ProductReviewId id, ProductId productId, UserId userId, ReviewRating rating, ReviewComment comment)
+    private ProductReview(ProductReviewId id, ProductId productId, UserId userId, ReviewRating rating, ReviewComment? comment)
     {
         Id = id;
         ProductId = productId;
@@ -22,7 +22,7 @@ public sealed class ProductReview : SoftDeletableEntityBase<ProductReviewId>
     public ProductId ProductId { get; private set; }
     public UserId UserId { get; private set; }
     public ReviewRating Rating { get; private set; }
-    public ReviewComment Comment { get; private set; }
+    public ReviewComment? Comment { get; private set; }
 
     public static Result<ProductReview> Create(ProductReviewCreateParameters parameters)
     {
