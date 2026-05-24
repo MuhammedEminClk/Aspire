@@ -14,13 +14,12 @@ internal sealed class ProductReviewCreatedDomainEventHandler(
     ICacheService cacheService,
     IProductReviewQueryRepository queryRepository) : INotificationHandler<ProductReviewCreatedDomainEvent>
 {
-    private const string Tag = "reviews";
-
     public async Task Handle(ProductReviewCreatedDomainEvent notification, CancellationToken cancellationToken)
     {
         logger.LogInformation("ProductReviewCreatedDomainEvent handled for review {ReviewId}", notification.Id.Value);
 
-        await cacheService.InvalidateTagAsync(Tag);
+        await cacheService.InvalidateTagAsync("reviews");
+        await cacheService.InvalidateTagAsync("average-rating");
 
         double averageRating = await queryRepository.GetAverageRatingByProductIdAsync(notification.ProductId, cancellationToken);
         int reviewCount = await queryRepository.GetReviewCountByProductIdAsync(notification.ProductId, cancellationToken);

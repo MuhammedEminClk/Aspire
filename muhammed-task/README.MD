@@ -160,7 +160,7 @@ The `CreateProductReviewCommandHandler` calls `IProductReviewQueryRepository.Exi
 
 **Cache invalidation via domain event handler**
 
-`ProductReviewCreatedDomainEventHandler` invalidates the `"reviews"` cache tag so that list and average-rating queries reflect the new state. This decouples cache invalidation from the command handler and follows the same pattern used by `ProductService`.
+`ProductReviewCreatedDomainEventHandler` invalidates both the `"reviews"` and `"average-rating"` cache tags so that list queries and average-rating queries both reflect the new state immediately. This decouples cache invalidation from the command handler and follows the same pattern used by `ProductService`.
 
 **Three separate cached queries**
 

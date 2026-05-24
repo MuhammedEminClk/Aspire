@@ -16,15 +16,20 @@ public sealed class ProductReviewListEndpoint : CarterModule
             .RequireAuthorization();
 
         routeGroup.MapGet("{productId:guid}/reviews", GetProductReviews)
-            .Produces<ProductReviewViewModel[]>()
+            .Produces<PaginatedResponse<ProductReviewViewModel>>()
             .ProducesProblem()
-            .WithDescription("Get reviews by product id")
+            .WithDescription("Get paginated reviews by product id")
             .WithName(nameof(GetProductReviews));
     }
 
-    private static Task<IResult> GetProductReviews(Guid productId, ISender sender, CancellationToken cancellationToken = default) =>
+    private static Task<IResult> GetProductReviews(
+        Guid productId,
+        ISender sender,
+        int pageNumber = 1,
+        int pageSize = 10,
+        CancellationToken cancellationToken = default) =>
         sender
-            .Send(new GetProductReviewListQuery(productId), cancellationToken)
+            .Send(new GetProductReviewListQuery(productId, pageNumber, pageSize), cancellationToken)
             .Match(
                 reviews => TypedResults.Ok(reviews),
                 errors => errors.ToProblemResult(),

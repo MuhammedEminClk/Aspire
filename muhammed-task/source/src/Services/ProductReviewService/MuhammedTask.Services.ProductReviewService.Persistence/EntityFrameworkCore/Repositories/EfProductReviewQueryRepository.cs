@@ -17,12 +17,19 @@ internal sealed class EfProductReviewQueryRepository(
             .FirstOrDefaultAsync(cancellationToken);
     }
 
-    public Task<ProductReviewReadModel[]> GetProductReviewsByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default)
+    public async Task<(ProductReviewReadModel[] Items, int TotalCount)> GetProductReviewsByProductIdAsync(ProductId productId, int pageNumber, int pageSize, CancellationToken cancellationToken = default)
     {
-        return context.ProductReviews
+        IOrderedQueryable<ProductReviewReadModel> query = context.ProductReviews
             .Where(r => r.ProductId == productId.Value)
-            .OrderByDescending(r => r.CreatedAt)
+            .OrderByDescending(r => r.CreatedAt);
+
+        int totalCount = await query.CountAsync(cancellationToken);
+        ProductReviewReadModel[] items = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
             .ToArrayAsync(cancellationToken);
+
+        return (items, totalCount);
     }
 
     public async Task<double> GetAverageRatingByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default)

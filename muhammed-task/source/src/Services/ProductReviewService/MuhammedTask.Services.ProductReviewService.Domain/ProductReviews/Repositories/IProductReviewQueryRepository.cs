@@ -7,7 +7,7 @@ namespace MuhammedTask.Services.ProductReviewService.Domain.ProductReviews.Repos
 public interface IProductReviewQueryRepository
 {
     Task<Maybe<ProductReviewReadModel>> GetProductReviewByIdAsync(ProductReviewId productReviewId, CancellationToken cancellationToken = default);
-    Task<ProductReviewReadModel[]> GetProductReviewsByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default);
+    Task<(ProductReviewReadModel[] Items, int TotalCount)> GetProductReviewsByProductIdAsync(ProductId productId, int pageNumber, int pageSize, CancellationToken cancellationToken = default);
     Task<double> GetAverageRatingByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default);
     Task<int> GetReviewCountByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default);
     Task<bool> ExistsAsync(ProductId productId, UserId userId, CancellationToken cancellationToken = default);

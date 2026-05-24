@@ -4,6 +4,10 @@ namespace MuhammedTask.Services.ProductReviewService.Application.ProductReviews.
 
 internal sealed class GetProductReviewListQueryValidator : AbstractValidator<GetProductReviewListQuery>
 {
-    public GetProductReviewListQueryValidator() =>
+    public GetProductReviewListQueryValidator()
+    {
         RuleFor(x => x.ProductId).NotEmpty();
+        RuleFor(x => x.PageNumber).GreaterThanOrEqualTo(1);
+        RuleFor(x => x.PageSize).InclusiveBetween(1, 100);
+    }
 }
