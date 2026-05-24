@@ -1,6 +1,7 @@
 using Carter;
 using CSharpEssentials;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using MuhammedTask.BuildingBlocks.Presentation.Endpoints;
 using MuhammedTask.Services.ProductReviewService.Application.ProductReviews.v1.Commands.Delete;
 
@@ -21,7 +22,7 @@ public sealed class ProductReviewDeleteEndpoint : CarterModule
             .WithName(nameof(DeleteProductReview));
     }
 
-    private static Task<IResult> DeleteProductReview(Guid reviewId, Guid userId, ISender sender, CancellationToken cancellationToken = default) =>
+    private static Task<IResult> DeleteProductReview(Guid reviewId, [FromQuery] Guid userId, ISender sender, CancellationToken cancellationToken = default) =>
         sender
             .Send(new DeleteProductReviewCommand(reviewId, userId), cancellationToken)
             .Match(

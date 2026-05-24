@@ -37,7 +37,7 @@ internal static class DependencyInjection
             .AddEnhancedProblemDetails()
             .AddAndConfigureApiVersioning()
             .AddSwagger<DefaultConfigureSwaggerOptions>(SecuritySchemes.JwtBearerTokenSecurity, Assembly.GetExecutingAssembly())
-            .AddKeycloakJwtBearer(keycloakServiceId: ServiceKeys.Keycloak, realm: "product-reviews")
+            .AddKeycloakJwtBearer(keycloakServiceId: ServiceKeys.Keycloak, realm: "products")
             .ConfigureTelemetries(hostEnvironment);
     }
 
