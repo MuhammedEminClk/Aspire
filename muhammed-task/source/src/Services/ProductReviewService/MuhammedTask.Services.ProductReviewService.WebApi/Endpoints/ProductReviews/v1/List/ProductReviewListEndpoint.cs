@@ -12,10 +12,10 @@ public sealed class ProductReviewListEndpoint : CarterModule
     public override void AddRoutes(IEndpointRouteBuilder app)
     {
         RouteGroupBuilder routeGroup = app
-            .CreateVersionedGroup(Tags.ProductReviews)
+            .CreateVersionedGroup(Tags.Products)
             .RequireAuthorization();
 
-        routeGroup.MapGet("product/{productId:guid}", GetProductReviews)
+        routeGroup.MapGet("{productId:guid}/reviews", GetProductReviews)
             .Produces<ProductReviewViewModel[]>()
             .ProducesProblem()
             .WithDescription("Get reviews by product id")

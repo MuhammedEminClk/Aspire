@@ -12,10 +12,10 @@ public sealed class ProductReviewAverageRatingEndpoint : CarterModule
     public override void AddRoutes(IEndpointRouteBuilder app)
     {
         RouteGroupBuilder routeGroup = app
-            .CreateVersionedGroup(Tags.ProductReviews)
+            .CreateVersionedGroup(Tags.Products)
             .RequireAuthorization();
 
-        routeGroup.MapGet("product/{productId:guid}/average-rating", GetAverageRating)
+        routeGroup.MapGet("{productId:guid}/average-rating", GetAverageRating)
             .Produces<ProductAverageRatingViewModel>()
             .ProducesProblem()
             .WithDescription("Get average rating by product id")

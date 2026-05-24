@@ -198,9 +198,9 @@ The `AddPooledPostgresDbContext` helper in `BuildingBlocks` (which applies `UseS
 
 | Method | Route | Purpose |
 |--------|-------|---------|
-| POST | `/product-reviews` | Create a review |
-| PUT | `/product-reviews/{reviewId}` | Update a review |
-| DELETE | `/product-reviews/{reviewId}` | Delete a review |
-| GET | `/product-reviews/{reviewId}` | Get a single review |
-| GET | `/product-reviews/product/{productId}` | List reviews for a product |
-| GET | `/product-reviews/product/{productId}/average-rating` | Get average rating |
+| POST | `/api/v1/productreviews` | Create a review |
+| PATCH | `/api/v1/productreviews/{reviewId}` | Update a review |
+| DELETE | `/api/v1/productreviews/{reviewId}` | Delete a review |
+| GET | `/api/v1/productreviews/{reviewId}` | Get a single review |
+| GET | `/api/v1/products/{productId}/reviews` | List reviews for a product |
+| GET | `/api/v1/products/{productId}/average-rating` | Get average rating |
