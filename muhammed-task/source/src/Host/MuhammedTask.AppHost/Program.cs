@@ -89,6 +89,7 @@ IResourceBuilder<ProjectResource> productReviewService = builder
     .WithReference(rabbitmq)
     .WithReference(productReviewServicePostgresDatabase)
     .WaitFor(productReviewServicePostgresDatabase)
+    .WaitFor(rabbitmq)
     .WithReference(keycloak)
     .WaitFor(keycloak);
 

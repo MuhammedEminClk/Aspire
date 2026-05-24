@@ -16,7 +16,7 @@ public sealed class ProductReview : SoftDeletableEntityBase<ProductReviewId>
         UserId = userId;
         Rating = rating;
         Comment = comment;
-        Raise(new ProductReviewCreatedDomainEvent(id));
+        Raise(new ProductReviewCreatedDomainEvent(id, productId));
     }
 
     public ProductId ProductId { get; private set; }

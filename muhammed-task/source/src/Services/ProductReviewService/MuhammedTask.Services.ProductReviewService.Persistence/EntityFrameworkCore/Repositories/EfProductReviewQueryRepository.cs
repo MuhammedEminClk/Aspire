@@ -25,11 +25,13 @@ internal sealed class EfProductReviewQueryRepository(
             .ToArrayAsync(cancellationToken);
     }
 
-    public Task<double> GetAverageRatingByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default)
+    public async Task<double> GetAverageRatingByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default)
     {
-        return context.ProductReviews
+        double? average = await context.ProductReviews
             .Where(r => r.ProductId == productId.Value)
-            .AverageAsync(r => (double)r.Rating, cancellationToken);
+            .AverageAsync(r => (double?)r.Rating, cancellationToken);
+
+        return average ?? 0.0;
     }
 
     public Task<int> GetReviewCountByProductIdAsync(ProductId productId, CancellationToken cancellationToken = default)

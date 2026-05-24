@@ -21,7 +21,7 @@ public sealed class ProductReviewUpdateEndpoint : CarterModule
             .CreateVersionedGroup(Tags.ProductReviews)
             .RequireAuthorization();
 
-        routeGroup.MapPut("{reviewId:guid}", UpdateProductReview)
+        routeGroup.MapPatch("{reviewId:guid}", UpdateProductReview)
             .Produces(HttpCodes.NoContent)
             .ProducesProblem()
             .WithDescription("Update product review")

@@ -3,4 +3,4 @@ using MuhammedTask.Services.ProductReviewService.Domain.ProductReviews.Fields;
 
 namespace MuhammedTask.Services.ProductReviewService.Domain.ProductReviews.Events;
 
-public sealed record ProductReviewCreatedDomainEvent(ProductReviewId Id) : IDomainEvent;
+public sealed record ProductReviewCreatedDomainEvent(ProductReviewId Id, ProductId ProductId) : IDomainEvent;
