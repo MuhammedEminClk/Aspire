@@ -14,6 +14,12 @@ public static class ProductReviewErrors
     public static readonly Error UnauthorizedError =
         Error.Forbidden(code: "ProductReview.Unauthorized", description: "User is not authorized to modify this review");
 
+    public static readonly Error EmptyProductIdError =
+        Error.Validation(code: "ProductReview.ProductId.Empty", description: "ProductId is required");
+
+    public static readonly Error EmptyUserIdError =
+        Error.Validation(code: "ProductReview.UserId.Empty", description: "UserId is required");
+
     public static class Rating
     {
         public static readonly Error EmptyError =

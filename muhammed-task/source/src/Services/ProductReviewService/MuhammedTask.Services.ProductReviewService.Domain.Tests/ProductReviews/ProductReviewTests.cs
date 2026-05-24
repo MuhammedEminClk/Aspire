@@ -1,6 +1,7 @@
 using CSharpEssentials;
 using FluentAssertions;
 using MuhammedTask.Services.ProductReviewService.Domain.ProductReviews;
+using MuhammedTask.Services.ProductReviewService.Domain.ProductReviews.Events;
 using MuhammedTask.Services.ProductReviewService.Domain.ProductReviews.Fields;
 using MuhammedTask.Services.ProductReviewService.Domain.ProductReviews.Parameters;
 
@@ -44,6 +45,7 @@ public sealed class ProductReviewTests
         Result<ProductReview> result = ProductReview.Create(ValidCreateParameters(productId: ProductId.Empty));
 
         result.IsFailure.Should().BeTrue();
+        result.Errors.Should().ContainSingle(e => e.Code == "ProductReview.ProductId.Empty");
     }
 
     [Fact]
@@ -52,6 +54,7 @@ public sealed class ProductReviewTests
         Result<ProductReview> result = ProductReview.Create(ValidCreateParameters(userId: UserId.Empty));
 
         result.IsFailure.Should().BeTrue();
+        result.Errors.Should().ContainSingle(e => e.Code == "ProductReview.UserId.Empty");
     }
 
     [Fact]
@@ -78,6 +81,7 @@ public sealed class ProductReviewTests
     {
         var ownerId = UserId.From(Guid.NewGuid());
         ProductReview review = ProductReview.Create(ValidCreateParameters(userId: ownerId)).Value;
+        review.ClearDomainEvents();
 
         var updateParams = new ProductReviewUpdateParameters(review.Id, ownerId, 5, "Updated comment");
         Result result = review.Update(updateParams);
@@ -85,6 +89,7 @@ public sealed class ProductReviewTests
         result.IsSuccess.Should().BeTrue();
         review.Rating.Value.Should().Be(5);
         review.Comment!.Value.Value.Should().Be("Updated comment");
+        review.DomainEvents.Should().ContainSingle(e => e is ProductReviewUpdatedDomainEvent);
     }
 
     [Fact]

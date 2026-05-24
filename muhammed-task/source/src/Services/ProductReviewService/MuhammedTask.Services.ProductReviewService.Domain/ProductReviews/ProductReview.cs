@@ -27,10 +27,10 @@ public sealed class ProductReview : SoftDeletableEntityBase<ProductReviewId>
     public static Result<ProductReview> Create(ProductReviewCreateParameters parameters)
     {
         if (parameters.ProductId == ProductId.Empty)
-            return ProductReviewErrors.Rating.EmptyError;
+            return ProductReviewErrors.EmptyProductIdError;
 
         if (parameters.UserId == UserId.Empty)
-            return ProductReviewErrors.Rating.EmptyError;
+            return ProductReviewErrors.EmptyUserIdError;
 
         Result<ReviewRating> rating = ReviewRating.Create(parameters.Rating);
         Result<ReviewComment> comment = ReviewComment.Create(parameters.Comment);
